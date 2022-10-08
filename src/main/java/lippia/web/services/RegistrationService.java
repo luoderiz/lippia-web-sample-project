@@ -2,6 +2,7 @@ package lippia.web.services;
 import com.crowdar.core.PropertyManager;
 import com.crowdar.core.actions.ActionManager;
 import com.crowdar.driver.DriverManager;
+import lippia.web.constants.RegistrationConstants;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
@@ -15,7 +16,7 @@ public class RegistrationService extends ActionManager {
     }
     public static void checkUrl() {
         String actualValue = DriverManager.getDriverInstance().getCurrentUrl();
-        String expectedValue = PropertyManager.getProperty("web.base.url");
+        String expectedValue = RegistrationConstants.MY_ACCOUNT_HOME_PAGE;
         Assert.assertEquals(actualValue, expectedValue);
     }
 }
