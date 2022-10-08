@@ -17,8 +17,9 @@ public class HomePageService extends ActionManager {
         WebElement element = waitClickable(locatorElement);
         click(element);
     }
-    public static void verify(String locatorElement, int quantity) {
+    public static void verify(String locatorElement, int expectedValue) {
         List<WebElement> elements = getElements(locatorElement);
-        Assert.assertEquals(elements.size(), quantity);
+        int actualValue = elements.size();
+        Assert.assertEquals(actualValue, expectedValue);
     }
 }
