@@ -1,12 +1,12 @@
 package lippia.web.steps;
 
+import com.crowdar.driver.DriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lippia.web.constants.LoginConstants;
+import lippia.web.constants.MyAccountConstants;
 import lippia.web.services.CommonService;
-import lippia.web.services.LoginService;
-import lippia.web.services.RegistrationService;
 
 public class LoginSteps {
 
@@ -22,12 +22,14 @@ public class LoginSteps {
 
     @And("I click on Login Button")
     public void clickOnLoginButton() {
-        LoginService.click(LoginConstants.LOGIN_BUTTON);
+        CommonService.click(LoginConstants.LOGIN_BUTTON);
     }
 
     @Then("I am redirected to My Account Home Page")
     public void loginSuccessful() {
-        LoginService.checkUrl();
+        String actualValue = DriverManager.getDriverInstance().getCurrentUrl();
+        String expectedValue = MyAccountConstants.MY_ACCOUNT_HOME_PAGE_URL;
+        CommonService.checkUrl(actualValue, expectedValue);
     }
 
     @When("I enter (.*) in Login User TextBox")
@@ -42,7 +44,7 @@ public class LoginSteps {
 
     @Then("An error message will announce Login failure")
     public void loginFail() {
-        RegistrationService.verifyFailure();
+        CommonService.verifyPresence(LoginConstants.ERROR_MESSAGE);
     }
 
 }

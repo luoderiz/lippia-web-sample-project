@@ -1,7 +1,5 @@
 package lippia.web.constants;
 
-import com.crowdar.core.PropertyManager;
-
 public class HomePageConstants {
     public static final String SHOP_MENU = "id:menu-item-40";
     public static final String HOME_MENU_BUTTON = "id:site-logo";

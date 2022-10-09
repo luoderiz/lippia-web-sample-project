@@ -1,12 +1,12 @@
 package lippia.web.steps;
 
+import com.crowdar.driver.DriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import lippia.web.constants.MyAccountConstants;
 import lippia.web.constants.RegistrationConstants;
 import lippia.web.services.CommonService;
-import lippia.web.services.LoginService;
-import lippia.web.services.RegistrationService;
 
 public class RegistrationSteps {
     @When("I click on My Account Menu")
@@ -27,7 +27,9 @@ public class RegistrationSteps {
     }
     @Then("I am registered and logged in")
     public void registrationSuccessful() {
-        LoginService.checkUrl();
+        String actualValue = DriverManager.getDriverInstance().getCurrentUrl();
+        String expectedValue = MyAccountConstants.MY_ACCOUNT_HOME_PAGE_URL;
+        CommonService.checkUrl(actualValue, expectedValue);
     }
     @And("I enter (.*) in Register EmailAddress TextBox")
     public void enterEmail(String email) {
@@ -39,6 +41,6 @@ public class RegistrationSteps {
     }
     @Then("An error message will announce Registration failure")
     public void registrationFail() {
-        RegistrationService.verifyFailure();
+        CommonService.verifyPresence(RegistrationConstants.ERROR_MESSAGE);
     }
 }
