@@ -11,7 +11,7 @@ Feature: Registration
     And I click on Register Button
     Then I am registered and logged in
 
-  @Smoke @Registration
+  @Smoke
   Scenario Outline: Registration failure
     When I click on My Account Menu
     And I enter <Email> in Register EmailAddress TextBox

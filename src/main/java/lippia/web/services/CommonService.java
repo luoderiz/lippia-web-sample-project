@@ -25,28 +25,32 @@ public class CommonService extends ActionManager {
     }
 
     public static void click(String locatorElement) {
+        dismissAdds();
         WebElement element = waitClickable(locatorElement);
         click(element);
         dismissAdds();
     }
 
     public static void verify(String locatorElement, int expectedValue) {
+        dismissAdds();
         List<WebElement> elements = getElements(locatorElement);
         int actualValue = elements.size();
         Assert.assertEquals(actualValue, expectedValue);
     }
 
     public static void enter(String element, String data) {
-        waitPresence(element);
+        dismissAdds();
         setInput(element, data, true, false);
         dismissAdds();
     }
 
     public static void checkUrl(String actualValue, String expectedValue) {
+        dismissAdds();
         Assert.assertEquals(actualValue, expectedValue);
     }
 
     public static void verifyPresence(String element) {
+        dismissAdds();
         isPresent(element);
     }
 }
