@@ -8,15 +8,6 @@ import org.testng.Assert;
 
 public class LoginService extends ActionManager {
 
-    public static void click(String locatorElement)  {
-        WebElement element = waitPresence(locatorElement);
-        click(element);
-    }
-
-    public static void enter(String element, String data) {
-        setInput(element, data, true, false);
-    }
-
     public static void checkUrl() {
         String actualValue = DriverManager.getDriverInstance().getCurrentUrl();
         String expectedValue = RegistrationConstants.MY_ACCOUNT_HOME_PAGE;

@@ -3,17 +3,17 @@ package lippia.web.steps;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lippia.web.constants.HomePageConstants;
-import lippia.web.services.HomePageService;
+import lippia.web.services.CommonService;
 
 public class HomePageSteps {
 
     @When("I click on Shop Menu")
     public void clickOnShopMenu() {
-        HomePageService.click(HomePageConstants.HOME_MENU_BUTTON);
+        CommonService.click(HomePageConstants.HOME_MENU_BUTTON);
     }
     @When("I click on Home Menu Button")
     public void clickOnHomeMenuButton() {
-        HomePageService.click(HomePageConstants.SHOP_MENU);
+        CommonService.click(HomePageConstants.SHOP_MENU);
     }
 
     /*
@@ -31,10 +31,10 @@ public class HomePageSteps {
     public void verifyElements(int quantity, String string) {
         String element = string.toUpperCase().replaceAll("\\s", "_");
         if (element.equals(HomePageConstants.SLIDER)) {
-            HomePageService.verify(HomePageConstants.SLIDER, quantity);
+            CommonService.verify(HomePageConstants.SLIDER, quantity);
         }
         if (element.equals(HomePageConstants.NEW_ARRIVAL)) {
-            HomePageService.verify(HomePageConstants.NEW_ARRIVAL, quantity);
+            CommonService.verify(HomePageConstants.NEW_ARRIVAL, quantity);
         }
     }
 }

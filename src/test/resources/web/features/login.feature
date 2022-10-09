@@ -1,4 +1,4 @@
-@Smoke
+@Ignore
 Feature: Login
   Background:
     Given I am in automationtesting site
@@ -8,7 +8,7 @@ Feature: Login
     When I enter my valid existing username "raffaella@carra.com" in the Login Textbox
     And I enter my valid password "Raffaella0303456" in the Login Textbox
     And I click on Login Button
-    Then I will be redirected to My Account Home Page
+    Then I am redirected to My Account Home Page
 
   Scenario Outline: Login failure
     When I enter <Email> in Login User TextBox
